@@ -12,6 +12,15 @@ module.exports = {
       resolve: "gatsby-source-wordpress-experimental",
       options: {
         url: "https://portfolio.startsmartdevelopment.com/graphql",
+        schema: {typePrefix: `Wp`},
+        develop: {hardCacheMediaFiles: true},
+        includedRoutes: [
+          '**/posts',
+          '**/tags',
+          '**/categories',
+          "**/projects",
+          "**/project",
+        ],
       },
     },
     "gatsby-plugin-styled-components",
@@ -22,6 +31,15 @@ module.exports = {
       options: {
         component: require.resolve(`./src/components/Layout.js`),
       },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Fanwood Text`
+        ],
+        display: 'swap'
+      }
     },
     "gatsby-plugin-sitemap",
     "gatsby-plugin-offline",

@@ -2,11 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
-@font-face {
-  font-family: "fanwood";
-  src: url("../fonts/FanwoodText-Regular.ttf");
-}
-
 *{
     margin: 0;
     padding: 0;
@@ -16,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 body {
     position: relative;
     background: linear-gradient(180deg, #000000 0%, #0094FF 100%);
-    font-family: "fanwood", georgia;
+    font-family: 'Fanwood Text', serif;
     min-height: 100vh;
     color: white;
     overflow-x: hidden;

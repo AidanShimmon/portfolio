@@ -1,10 +1,10 @@
 import * as React from "react"
-import {useEffect} from "react"
+import { Link, graphql, useStaticQuery } from "gatsby";
 // Components
 import styled from "styled-components";
+import Project from "./Project"
 // Animation
 import { gsap } from "gsap";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
 const Projects = () => {
     const moveForce = 10; // max movement in pixels
@@ -30,7 +30,6 @@ const Projects = () => {
     }
 
     const projectMouseLeave = (e) => {
-        console.log(e.target);
         gsap.to(e.target, {
             x: 0,
             y: 0,
@@ -40,14 +39,37 @@ const Projects = () => {
         });
     }
 
+    const projectsData = useStaticQuery(graphql`
+        query {
+            allWpPost(limit: 4) {
+                edges {
+                node {
+                    projects {
+                    projectTitle
+                    projectDescription
+                    projectImage {
+                        srcSet
+                        sourceUrl
+                    }
+                    }
+                }
+                }
+            }
+        }
+    `)
+
     return (
         <StyledProjects>
             <h1>Projects</h1>
             <div className="projects__grid">
-                <div onMouseMove={projectMouseMove} onMouseLeave={projectMouseLeave} className="project"></div>
-                <div onMouseMove={projectMouseMove} onMouseLeave={projectMouseLeave} className="project"></div>
-                <div onMouseMove={projectMouseMove} onMouseLeave={projectMouseLeave} className="project"></div>
-                <div onMouseMove={projectMouseMove} onMouseLeave={projectMouseLeave} className="project"></div>
+                {projectsData.allWpPost.edges.map(({ node }) => (
+                    <div
+                        onMouseMove={projectMouseMove} 
+                        onMouseLeave={projectMouseLeave}  
+                        className="project">
+                        <Project data={node} />
+                    </div>      
+                ))}
             </div>
         </StyledProjects>
     )
@@ -69,6 +91,7 @@ position: relative;
     background-color: white;
     height: auto;
     box-shadow: 0 0 40px 20px rgba(0,0,0,.15);
+    overflow: hidden;
 
     :nth-child(1) {
         grid-column: 6/13;

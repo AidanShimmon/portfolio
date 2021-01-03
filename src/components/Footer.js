@@ -9,8 +9,6 @@ import treesFront from "../images/treesFront.png"
 import treesLevel1 from "../images/treesLevel1.svg"
 import treesLevel2 from "../images/treesLevel2.svg"
 import treesLevel3 from "../images/treesLevel3.svg"
-import mountain1 from "../images/Mountain_footer_1.svg"
-import mountain2 from "../images/Mountain_footer_2.svg"
 
 const Footer = () => {
     useEffect(() => {
@@ -26,7 +24,7 @@ const Footer = () => {
         })
     
         gsap.to("#treesLayer2", {
-            yPercent: -50,
+            yPercent: -75,
             ease: "none",
             scrollTrigger: {
               trigger: "#trees",
@@ -35,24 +33,6 @@ const Footer = () => {
         })
     
         gsap.to("#treesLayer3", {
-            yPercent: -100,
-            ease: "none",
-            scrollTrigger: {
-              trigger: "#trees",
-              scrub: true
-            },         
-        })
-
-        gsap.to("#mountain1", {
-            yPercent: -150,
-            ease: "none",
-            scrollTrigger: {
-              trigger: "#trees",
-              scrub: true
-            },         
-        })
-
-        gsap.to("#mountain2", {
             yPercent: -150,
             ease: "none",
             scrollTrigger: {
@@ -84,16 +64,6 @@ const Footer = () => {
                     src={treesLevel3} 
                     id="treesLayer3" 
                     alt="parallaxed trees layer 3"
-                />
-                <img 
-                    src={mountain1} 
-                    id="mountain1" 
-                    alt="mountain layer 1"
-                />
-                <img 
-                    src={mountain2} 
-                    id="mountain2" 
-                    alt="mountain layer 2"
                 />
             </div>
         </footer> 

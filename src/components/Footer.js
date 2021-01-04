@@ -10,6 +10,10 @@ import treesLevel1 from "../images/treesLevel1.svg"
 import treesLevel2 from "../images/treesLevel2.svg"
 import treesLevel3 from "../images/treesLevel3.svg"
 
+import mailSvg from "../images/mail.svg";
+import linkedinSvg from "../images/linkedin.svg";
+import githubSvg from "../images/github.svg";
+
 const Footer = () => {
     useEffect(() => {
         gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);
@@ -65,6 +69,23 @@ const Footer = () => {
                     id="treesLayer3" 
                     alt="parallaxed trees layer 3"
                 />
+            </div>
+            <div className="social">
+                <a 
+                    target="_blank"
+                    href="https://github.com/AidanShimmon"
+                >
+                    <img src={githubSvg} alt="View my github repo here"/>
+                </a>
+                <a 
+                    target="_blank" 
+                    href="https://www.linkedin.com/in/aidan-shimmon-738428168/"
+                >
+                    <img src={linkedinSvg} alt="Find me on Linkedin"/>
+                </a>
+                <a href="mailto:aidanshimmon@hotmail.co.uk">
+                    <img src={mailSvg} alt="Email me"/>
+                </a>
             </div>
         </footer> 
     )

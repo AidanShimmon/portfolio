@@ -13,7 +13,7 @@ import Moon from "../images/Moon.svg"
 const Hero = () => {
     useEffect(() => {
         gsap.registerPlugin(CSSRulePlugin, MotionPathPlugin); 
-        const r = 700;
+        const r = document.documentElement.clientWidth/2;
         gsap.to("#moon", { 
             motionPath: {
                 path: `M ${-r}, 0
@@ -48,33 +48,64 @@ const Hero = () => {
 }
 
 const StyledHero = styled.div`
-display: flex;
-justify-content: space-between;
-height: 60vh;
-
-.hero__intro {
-    padding: 10vh 0;
-}
-
-.hero__intro__text {
-    p {
-        padding-right: 40%;
-    }
-}
-
-.hero__space {
-    width: auto;
-    padding-top: 5vh;
-}
-
-#moon {
     position: relative;
-    z-index: -1;
-}
+    display: flex;
+    justify-content: space-between;
+    height: 60vh;
 
-#earth {
+    @media(max-width: 1100px) {
+        height: 50vh;
+    }
 
-}
+    @media(max-width:800px) {
+        height: auto;
+    }
+
+    .hero__intro {
+        padding: 10vh 0;
+
+        @media(max-width:1100px) {
+            padding: 5rem 0 0 0;
+        }
+
+        @media(max-width:800px) {
+            padding: 3rem 0 8rem 0;
+        }
+    }
+
+    .hero__intro__text {
+        p {
+            padding-right: 40%;
+
+            @media(max-width:700px) {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .hero__space {
+        width: auto;
+        padding-top: 5vh;
+        position: relative;
+
+        @media(max-width:1100px) {
+            position: absolute;
+            right: 0;
+            top: 7rem;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        @media(max-width:700px) {
+            top: 0;
+            opacity: 0.3;
+        }
+    }
+
+    #moon {
+        position: relative;
+        z-index: -1;
+    }
 `
 
 export default Hero;

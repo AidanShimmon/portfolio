@@ -50,17 +50,9 @@ const StyledProjectImage = styled.div`
     transform-style: preserve-3d;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left;
-
-    &:hover {
-        .project__content {
-            opacity: 1;
-        }
-    }
+    background-position: center;
 
     .project__content {
-        transition: opacity 0.5s ease;
-        opacity: 0;
         position: absolute;
         bottom: 12%;
         right: 1rem;
@@ -72,15 +64,12 @@ const StyledProjectImage = styled.div`
         background-color: rgba(0,0,0,0.2);
         backdrop-filter: blur(10px);
 
-        h3 {
-            font-size: 2.5rem;
-            line-height: 1;
-            font-weight:  400;
-            margin-bottom: 1.5rem;
-        }
-
         p {
             margin-bottom : 1rem;
+
+            @media(max-width: 600px) {
+                margin-bottom: 0;
+            }
         }
     }
 `

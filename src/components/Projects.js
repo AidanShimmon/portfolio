@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 // Components
 import styled from "styled-components";
 import Project from "./Project"
@@ -8,16 +8,17 @@ const Projects = () => {
 
     const projectsData = useStaticQuery(graphql`
         query {
-            allWpPost(limit: 4) {
+            allWpPost(limit: 4, sort: {order: DESC, fields: date}) {
                 edges {
                 node {
+                    slug
                     projects {
-                    projectTitle
-                    projectDescription
-                    projectImage {
-                        srcSet
-                        sourceUrl
-                    }
+                        projectTitle
+                        projectDescription
+                        projectImage {
+                            srcSet
+                            sourceUrl
+                        }
                     }
                 }
                 }
@@ -29,9 +30,9 @@ const Projects = () => {
         <StyledProjects>
             <div className="projects__grid">
                 {projectsData.allWpPost.edges.map(({ node }) => (
-                    <div className="project">
+                    <Link to={`/project/${node.slug}`} className="project">
                         <Project data={node} />
-                    </div>      
+                    </Link>      
                 ))}
             </div>
         </StyledProjects>
@@ -59,6 +60,8 @@ const StyledProjects = styled.div`
         position: relative;
         height: auto;
         perspective: 500px;
+        margin-bottom: 0;
+        cursor: pointer;
 
         :nth-child(1) {
             grid-column: 6/13;

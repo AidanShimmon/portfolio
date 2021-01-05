@@ -16,12 +16,14 @@ const Nav = () => {
             <div className="social">
                 <a 
                     target="_blank"
+                    rel="noreferrer"
                     href="https://github.com/AidanShimmon"
                 >
                     <img src={githubSvg} alt="View my github repo here"/>
                 </a>
                 <a 
                     target="_blank" 
+                    rel="noreferrer"
                     href="https://www.linkedin.com/in/aidan-shimmon-738428168/"
                 >
                     <img src={linkedinSvg} alt="Find me on Linkedin"/>

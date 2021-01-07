@@ -27,7 +27,7 @@ const Projects = () => {
     `)
 
     return (
-        <StyledProjects>
+        <StyledProjects id="#projects">
             <div className="projects__grid">
                 {projectsData.allWpPost.edges.map(({ node }) => (
                     <Link to={`/project/${node.slug}`} className="project">

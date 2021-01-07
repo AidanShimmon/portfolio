@@ -36,7 +36,7 @@ const Hero = () => {
                 <h1>Welcome to my portfolio</h1>
                 <div className="hero__intro__text">
                     <p>I am a front-end focused developer with a drive to always learn and progres. My current skillset consists of HTML, SCSS, JavaScript, React, Gatsby and Wordpress.</p>
-                    <a href="/#prjects">View my projects below</a>
+                    <p>Scroll to view my projects</p>
                 </div>
             </div>
             <div className="hero__space">

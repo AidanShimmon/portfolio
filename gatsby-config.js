@@ -17,9 +17,7 @@ module.exports = {
         includedRoutes: [
           '**/posts',
           '**/tags',
-          '**/categories',
-          "**/projects",
-          "**/project",
+          '**/categories'
         ],
       },
     },
